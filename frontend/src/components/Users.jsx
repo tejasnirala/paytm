@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Button } from "./Button"
 import axios from "axios";
