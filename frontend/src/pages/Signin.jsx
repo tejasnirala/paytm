@@ -18,7 +18,7 @@ export function Signin() {
     const token = localStorage.getItem("token");
 
     if (token) {
-      axios.get("http://localhost:3000/api/v1/user/me", {
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/me`, {
         headers: {
           Authorization: token, // Send token for validation
         },
@@ -54,7 +54,7 @@ export function Signin() {
         <div className="pt-4">
           <Button 
             onClick={async () => {
-              const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+              const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signin`, {
                 username: email,
                 password: password,
               });

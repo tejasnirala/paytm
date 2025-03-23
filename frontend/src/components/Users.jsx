@@ -10,7 +10,7 @@ export function Users() {
   const [currentLoggedInUserId, setCurrentLoggedInUserId] = useState([])
   
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter, {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/bulk?filter=${filter}`, {
       headers: {
         Authorization: localStorage.getItem("token")
       },
@@ -22,7 +22,7 @@ export function Users() {
 
 
   useEffect( () => {
-    axios.get("http://localhost:3000/api/v1/user/me", {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/me`, {
       headers: {
         Authorization: localStorage.getItem("token")
       }

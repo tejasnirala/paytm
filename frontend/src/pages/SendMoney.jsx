@@ -15,7 +15,7 @@ export function SendMoney() {
 
   async function handlePaymentTransfer () {
     const response = await axios.post(
-      "http://localhost:3000/api/v1/account/transfer",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/account/transfer`,
       { amount, to: id },
       {
         headers: {
@@ -56,11 +56,11 @@ export function SendMoney() {
               <input
                 onChange={(e) => { 
                   setAmount(e.target.value);
-                  console.log("amount ==> ", amount);
                 }}
                 type={"number"}
                 placeholder={"Enter amount"}
                 className="w-full px-2 py-1 border rounded border-slate-200"
+                autoFocus
               />
             </div>
             {/* --------------   INITIATE TRANSFER   ------------------- */}

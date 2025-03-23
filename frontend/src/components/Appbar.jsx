@@ -5,7 +5,7 @@ export function Appbar() {
   const [user, setUser] = useState([]);
 
   useEffect( () => {
-    axios.get("http://localhost:3000/api/v1/user/me", {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/me`, {
       headers: {
         Authorization: localStorage.getItem("token")
       }
