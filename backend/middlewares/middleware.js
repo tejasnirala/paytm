@@ -1,11 +1,10 @@
 import jwt from "jsonwebtoken"
-import { JWT_SECRET } from "../configs/config.js";
 
 export const authMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if(!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(403).json({
+    return res.status(400).json({
       message: "Wrong authorization"
     });
   }
@@ -13,14 +12,14 @@ export const authMiddleware = async (req, res, next) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    const decode = jwt.verify(token, JWT_SECRET);
+    const decode = jwt.verify(token, process.env.JWT_SECRET);
 
     req.userId = decode.userId;
 
     next();
   } catch (error) {
-    return res.status(403).json({
-      message: "You are not authenticated to perform this action"
+    return res.status(401).json({
+      message: "You are unauthenticated to perform this action"
     });
   }
 }

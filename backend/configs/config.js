@@ -1,1 +1,0 @@
-export const JWT_SECRET = 'tejas_paytm-project';

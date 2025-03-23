@@ -2,7 +2,6 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 import { Account, User } from "../../../db/index.js";
 import { signUpBody, signInBody, dataUpdateBody } from "../../../utils/user-input-validations.js"
-import { JWT_SECRET } from "../../../configs/config.js";
 import { authMiddleware } from "../../../middlewares/middleware.js";
 
 const router = Router();
@@ -43,7 +42,7 @@ router.post("/signup", async (req, res) => {
 
   const token = jwt.sign({
     userId
-  }, JWT_SECRET);
+  }, process.env.JWT_SECRET);
 
   res.status(200).json({
     message: "User created successfully",
@@ -76,7 +75,7 @@ router.post("/signin", async (req, res) => {
 
   const token = jwt.sign({
     userId
-  }, JWT_SECRET);
+  }, process.env.JWT_SECRET);
 
   res.status(200).json({
     token: token

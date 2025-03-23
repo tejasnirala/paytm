@@ -1,6 +1,11 @@
 import { connect, Schema, model } from "mongoose";
+import { config } from "dotenv"
 
-connect("mongodb://localhost:27017/paytm-project");
+config({ path: '.env' });
+
+connect(process.env.MONGODB_URL)
+  .then(() => console.log("Database connected successfully!"))
+  .catch((err) => console.error("Database connection failed:", err));
 
 const userSchema = new Schema({
   username: {
