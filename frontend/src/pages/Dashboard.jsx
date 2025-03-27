@@ -3,13 +3,14 @@ import { Appbar } from '../components/Appbar';
 import { Balance } from '../components/Balance';
 import { Users } from '../components/Users';
 import axios from 'axios';
+import { API_URL } from '../utils/ApiUrl';
 
 export function Dashboard() {
 
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/account/balance`, {
+    axios.get(`${API_URL}/api/v1/account/balance`, {
       headers: {
         Authorization: localStorage.getItem("token")
       }

@@ -2,6 +2,7 @@ import { Heading } from "../components/Heading";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { API_URL } from "../utils/ApiUrl";
 
 export function SendMoney() {
   const [serchParams] = useSearchParams();
@@ -15,7 +16,7 @@ export function SendMoney() {
 
   async function handlePaymentTransfer () {
     const response = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/api/v1/account/transfer`,
+      `${API_URL}/api/v1/account/transfer`,
       { amount, to: id },
       {
         headers: {
