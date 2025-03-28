@@ -5,9 +5,7 @@ import { Dashboard } from './pages/Dashboard'
 import { SendMoney } from './pages/SendMoney'
 import { ForgotPassword } from './pages/ForgotPassword'
 import { ResetPassword } from './pages/ResetPassword'
-
-
-import { Testing } from './pages/Test'
+import { OtpLoginInput } from './pages/ValidateOTP'
 
 
 function App() {
@@ -22,7 +20,7 @@ function App() {
             <Route path="/send" element={<SendMoney />} />
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/password/reset/:token" element={<ResetPassword />} /> 
-            <Route path="/test" element={<Testing />} /> 
+            <Route path="/verify-otp" element={<OtpLoginInput />} /> 
           </Routes>
         </BrowserRouter>
     </div>

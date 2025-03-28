@@ -24,8 +24,7 @@ export function Signup() {
       firstName: firstNameRef.current,
       lastName: lastNameRef.current,
     });
-    localStorage.setItem("token", `Bearer ${response.data.token}`);
-    navigate("/signin");
+    if(response.status === 200) navigate("/verify-otp", { state: { username: usernameRef.current } });
   }, []);
 
   return (

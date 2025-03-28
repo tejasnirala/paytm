@@ -26,14 +26,13 @@ export function ResetPassword() {
   });
 
   const handleResetPassword = useCallback(async () => {
-    // const response = await axios.post(
-    //   `${API_URL}/api/v1/user/password/reset/${token}`,
-    //   { password, confirmPassword }
-    // );
-    // if (response.status === 200) {
-    //   setShowModal(true);
-    // }
-    setShowModal(true);
+    const response = await axios.post(
+      `${API_URL}/api/v1/user/password/reset/${token}`,
+      { password, confirmPassword }
+    );
+    if (response.status === 200) {
+      setShowModal(true);
+    }
   });
 
   return (
@@ -44,7 +43,7 @@ export function ResetPassword() {
             <MemoizedHeading label={"New Password"} />
           </div>
           <InputBox
-            onChange={handlePasswordChange} 
+            onChange={handlePasswordChange}
             type={"password"}
             label={"New Password"}
             placeholder={"********"}
@@ -80,11 +79,11 @@ export function ResetPassword() {
   );
 }
 
-const MemoizedHeading = memo (function() {
+const MemoizedHeading = memo(function () {
   return <Heading label={"New Password"} />
 })
 
-const MemoizedButton = memo (function({resetPassword}) {
+const MemoizedButton = memo(function ({ resetPassword }) {
   return <Button
     onClick={resetPassword}
     label={"Reset Password"}

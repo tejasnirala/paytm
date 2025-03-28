@@ -6,4 +6,4 @@
 
 - TODO: If a user tries to access any page directly through route in url and doesn't have authorization token in it's localstorage or having wrong authorization token, the site should redirect the user to `signin` page.
 
-- TODO: Add a OTP Verification page.
+- TODO: Update Readme containing the lateset updates.
